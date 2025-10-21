@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/storyfolio
+    url: jdbc:postgresql://localhost:5433/storyfolio
     username: story
     password: storypass
   jpa:
@@ -18,23 +18,24 @@ spring:
   flyway:
     enabled: true
     locations: classpath:db/migration
-
-# OAuth2 вход через GitHub (значения позже подставишь из GitHub Developer Settings)
-github:
   security:
     oauth2:
       client:
         registration:
           github:
-            client-id: ${GITHUB_CLIENT_ID:changeme}
-            client-secret: ${GITHUB_CLIENT_SECRET:changeme}
-            scope: read:user, user:email
-        provider:
-          github:
-            authorization-uri: https://github.com/login/oauth/authorize
-            token-uri: https://github.com/login/oauth/access_token
-            user-info-uri: https://api.github.com/user
-            user-name-attribute: id
+            client-id: ${GITHUB_CLIENT_ID}
+            client-secret: ${GITHUB_CLIENT_SECRET}
+            scope:
+              - read:user
+              - user:email
+
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger
+
 
 management:
   endpoints:
