@@ -21,7 +21,17 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/login", "/error", "/swagger/**", "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
+                        .requestMatchers(
+                                "/", 
+                                "/login", 
+                                "/login.html", // allow serving static login page
+                                "/error", 
+                                "/swagger/**", 
+                                "/v3/api-docs/**", 
+                                "/swagger-ui.html", 
+                                "/swagger-ui/**", 
+                                "/api/me"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth -> oauth

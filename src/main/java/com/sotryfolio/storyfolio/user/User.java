@@ -14,10 +14,16 @@ public class User {
     @Column(nullable = false, unique = true)
     private Long githubId;
 
+    private String provider;
     private String email;
     private String name;
     private String avatar;
 
-    @Builder.Default
-    private OffsetDateTime createdAt = OffsetDateTime.now();
+    private OffsetDateTime createdAt;
+    private OffsetDateTime lastLoginAt;
+
+    @PrePersist
+    void onCreate() {
+        if (createdAt == null) createdAt = OffsetDateTime.now();
+    }
 }

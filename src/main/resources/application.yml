@@ -8,7 +8,7 @@ spring:
     password: storypass
   jpa:
     hibernate:
-      ddl-auto: validate   # схему создаём миграциями Flyway, а не руками Hibernate
+      ddl-auto: validate
     properties:
       hibernate:
         format_sql: true
@@ -25,10 +25,7 @@ spring:
           github:
             client-id: ${GITHUB_CLIENT_ID}
             client-secret: ${GITHUB_CLIENT_SECRET}
-            scope:
-              - read:user
-              - user:email
-
+            scope: read:user,user:email
 
 springdoc:
   api-docs:

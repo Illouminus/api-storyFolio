@@ -1,7 +1,40 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>StoryFolio Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #f8f9fa;
+        }
+        h1 { margin-bottom: 1rem; }
+        .btn {
+            display: inline-block;
+            margin: 0.5rem;
+            padding: 0.8rem 1.2rem;
+            background: #24292e;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .btn:hover { opacity: 0.8; }
+        .google { background: #db4437; }
+        .gitlab { background: #fc6d26; }
+    </style>
+</head>
 <body>
-<h3>StoryFolio</h3>
-<a href="/oauth2/authorization/github">Login with GitHub</a>
+<h1>Sign in to StoryFolio</h1>
+<a href="/oauth2/authorization/github" class="btn github">Login with GitHub</a>
+<a href="/oauth2/authorization/google" class="btn google">Login with Google</a>
+<a href="/oauth2/authorization/gitlab" class="btn gitlab">Login with GitLab</a>
 </body>
 </html>
